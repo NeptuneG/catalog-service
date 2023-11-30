@@ -19,6 +19,7 @@ jobs:
           cache: gradle
       - name: Build, unit tests and integration tests
         run: |
+          cd catalog-service
           chmod +x gradlew
           ./gradlew build
       - name: Code vulnerability scanning

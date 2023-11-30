@@ -1,1 +1,4 @@
-rootProject.name = "catalog-service"
+include(
+    "catalog-service",
+    "config-service",
+)
