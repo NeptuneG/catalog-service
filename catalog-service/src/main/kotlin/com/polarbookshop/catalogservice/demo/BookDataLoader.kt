@@ -15,10 +15,12 @@ class BookDataLoader(
 ) {
     @EventListener(ApplicationReadyEvent::class)
     fun loadBookTestData() {
-        val books = listOf(
-            Book("1234567891", "Northern Lights", "Lyra Silverstar", 9.90, "Polarsophia"),
-            Book("1234567892", "Polar Journey", "Iorek Polarson", 12.90, "Polarsophia"),
-        )
-        bookRepository.saveAll(books)
+        runCatching {
+            val books = listOf(
+                Book("1234567891", "Northern Lights", "Lyra Silverstar", 9.90, "Polarsophia"),
+                Book("1234567892", "Polar Journey", "Iorek Polarson", 12.90, "Polarsophia"),
+            )
+            bookRepository.saveAll(books)
+        }
     }
 }
