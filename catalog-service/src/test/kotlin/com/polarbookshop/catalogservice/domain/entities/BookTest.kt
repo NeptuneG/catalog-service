@@ -12,7 +12,7 @@ class BookTest {
 
     @Test
     fun whenAllFieldsCorrectThenValidationSucceeds() {
-        val book = Book("1234567890", "Title", "Author", 9.90)
+        val book = Book("1234567890", "Title", "Author", 9.90, "Polarsophia")
         val violation = validator.validate(book)
 
         assertThat(violation).isEmpty()
@@ -21,7 +21,7 @@ class BookTest {
 
     @Test
     fun whenIsbnDefinedButIncorrectThenValidationFails() {
-        val book = Book("a234567890", "Title", "Author", 9.90)
+        val book = Book("a234567890", "Title", "Author", 9.90, "Polarsophia")
         val violations = validator.validate(book)
 
         assertThat(violations).hasSize(1)

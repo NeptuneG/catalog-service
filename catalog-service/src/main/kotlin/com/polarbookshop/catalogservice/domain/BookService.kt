@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 class BookService(
     private val bookRepository: BookRepository
 ) {
-    fun viewBookList(): List<Book> = bookRepository.findAll()
+    fun viewBookList(): List<Book> = bookRepository.findAll().toList()
 
     fun viewBookDetails(isbn: String): Book = bookRepository.findByIsbn(isbn) ?: throw BookNotFoundException(isbn)
 
@@ -26,7 +26,13 @@ class BookService(
     fun editBookDetails(isbn: String, book: Book): Book {
         return bookRepository.findByIsbn(isbn)
             ?.let { existingBook ->
-                val bookToUpdate = book.copy(isbn = existingBook.isbn)
+                val bookToUpdate = book.copy(
+                    id = existingBook.id,
+                    isbn = existingBook.isbn,
+                    createdDate = existingBook.createdDate,
+                    lastModifiedDate = existingBook.lastModifiedDate,
+                    version = existingBook.version,
+                )
                 bookRepository.save(bookToUpdate)
             } ?: addBookToCatalog(book)
     }

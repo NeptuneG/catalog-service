@@ -1,6 +1,0 @@
-spring:
-  cloud:
-    config:
-      enabled: false
-polar:
-  greeting: Welcome to the local book catalog!
