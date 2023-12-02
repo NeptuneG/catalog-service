@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
+import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
     id("org.springframework.boot") version "3.2.0"
@@ -64,8 +66,19 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-tasks {
-    bootRun {
-        systemProperty("spring.profiles.active", "testdata")
+tasks.withType<BootRun> {
+    systemProperty("spring.profiles.active", "testdata")
+}
+
+tasks.withType<BootBuildImage> {
+    imageName = project.name
+    environment.put("BP_JVM_VERSION", "17.*")
+
+    docker {
+        publishRegistry {
+            username = project.findProperty("registryUsername") as String?
+            password = project.findProperty("registryToken") as String?
+            url = project.findProperty("registryUrl") as String?
+        }
     }
 }
