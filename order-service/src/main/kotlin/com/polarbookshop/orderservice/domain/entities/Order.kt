@@ -1,5 +1,7 @@
-package com.polarbookshop.orderservice.domain
+package com.polarbookshop.orderservice.domain.entities
 
+import com.polarbookshop.orderservice.book.entites.Book
+import com.polarbookshop.orderservice.domain.OrderStatus
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.LastModifiedDate
@@ -35,5 +37,7 @@ data class Order(
     companion object {
         fun buildRejected(bookIsbn: String, quantity: Int): Order =
             Order(bookIsbn, null, null, quantity, OrderStatus.REJECTED)
+        fun buildAccepted(book: Book, quantity: Int): Order =
+            Order(book.isbn, "${book.title} - ${book.author}", book.price, quantity, OrderStatus.ACCEPTED)
     }
 }

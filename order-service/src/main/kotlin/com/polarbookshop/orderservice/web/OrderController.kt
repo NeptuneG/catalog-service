@@ -1,6 +1,6 @@
 package com.polarbookshop.orderservice.web
 
-import com.polarbookshop.orderservice.domain.Order
+import com.polarbookshop.orderservice.domain.entities.Order
 import com.polarbookshop.orderservice.domain.OrderService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.RestController
