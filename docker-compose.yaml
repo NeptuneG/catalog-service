@@ -11,5 +11,9 @@ services:
     volumes:
       - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/postgresql/data
+  cache:
+    image: "redis:7.0"
+    ports:
+      - "6379:6379"
 volumes:
   db-data:
