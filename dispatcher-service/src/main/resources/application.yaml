@@ -1,0 +1,14 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: dispatcher-service
+  cloud:
+    function:
+      definition: pack|label
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    connection-timeout: 5s

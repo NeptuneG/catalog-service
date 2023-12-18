@@ -15,5 +15,12 @@ services:
     image: "redis:7.0"
     ports:
       - "6379:6379"
+  mq:
+    image: rabbitmq:3.12-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
 volumes:
   db-data:
