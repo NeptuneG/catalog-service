@@ -23,8 +23,13 @@ extra["springCloudVersion"] = "2023.0.0"
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
+    // Ref: https://aregall.tech/aws-lambda-spring-cloud-function-kotlin-graalvm-native-openai#heading-reviewing-the-gradle-setup
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
+
+    testImplementation("org.springframework.cloud:spring-cloud-stream-test-binder")
 }
 
 dependencyManagement {

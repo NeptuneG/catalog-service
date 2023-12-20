@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 import reactor.core.publisher.Flux
 
 @Configuration
-class DispatchingFunctions{
+class DispatchingFunctions {
     companion object {
         private val logger: Logger = LoggerFactory.getLogger(DispatchingFunctions::class.java)
     }
