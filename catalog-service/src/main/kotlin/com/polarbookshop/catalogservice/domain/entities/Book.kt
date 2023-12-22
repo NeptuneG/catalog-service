@@ -42,11 +42,11 @@ data class Book(
 
     @JsonProperty("createdDate")
     @CreatedDate
-    val createdDate: Instant,
+    val createdDate: Instant?,
 
     @JsonProperty("lastModifiedDate")
     @LastModifiedDate
-    val lastModifiedDate: Instant,
+    val lastModifiedDate: Instant?,
 
     @JsonProperty("version")
     @field:Version

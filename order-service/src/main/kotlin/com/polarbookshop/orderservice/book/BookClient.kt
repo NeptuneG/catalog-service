@@ -20,7 +20,7 @@ class BookClient(
         private val RETRY_BACKOFF = Retry.backoff(MAX_RETRY_ATTEMPTS, MIN_RETRY_BACKOFF)
     }
 
-    suspend fun getBookByIsbn(isbn: String): Mono<Book> {
+    fun getBookByIsbn(isbn: String): Mono<Book> {
         return webClient.get().uri(BOOKS_ROOT_API + isbn)
             .retrieve().bodyToMono(Book::class.java)
             .timeout(TIME_OUT, Mono.empty())

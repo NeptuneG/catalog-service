@@ -40,4 +40,6 @@ data class Order(
         fun buildAccepted(book: Book, quantity: Int): Order =
             Order(book.isbn, "${book.title} - ${book.author}", book.price, quantity, OrderStatus.ACCEPTED)
     }
+
+    fun dispatch() = copy(status = OrderStatus.DISPATCHED)
 }
