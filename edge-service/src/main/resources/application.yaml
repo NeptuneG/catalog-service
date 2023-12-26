@@ -29,10 +29,6 @@ spring:
               args:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
-        - id: root-route
-          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/
-          predicates:
-            - Path=/
         - id: order-route
           uri: ${ORDER_SERVICE_URL:http://localhost:9002}/orders
           predicates:
@@ -41,6 +37,10 @@ spring:
             - name: CircuitBreaker
               args:
                 name: orderCircuitBreaker
+        - id: spa-route
+          uri: ${SPA_URL:http://localhost:9004}
+          predicates:
+            - Path=/,/*.css,/*.js,/favicon.ico
       default-filters:
         - SaveSession
         - name: Retry

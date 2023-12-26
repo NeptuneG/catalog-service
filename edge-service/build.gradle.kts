@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.2.0"
-    id("io.spring.dependency-management") version "1.1.4"
+    id("org.springframework.boot") version "2.7.18"
+    id("io.spring.dependency-management") version "1.0.15.RELEASE"
     kotlin("jvm") version "1.9.20"
     kotlin("plugin.spring") version "1.9.20"
 }
@@ -18,8 +18,8 @@ repositories {
     mavenCentral()
 }
 
-extra["springCloudVersion"] = "2023.0.0"
-extra["testcontainersVersion"] = "1.17.3"
+extra["springCloudVersion"] = "2021.0.8"
+extra["testcontainersVersion"] = "1.19.3"
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")

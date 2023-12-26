@@ -38,5 +38,12 @@ services:
       - ./keycloak:/opt/keycloak/data/import
     depends_on:
       - db
+  polar-ui:
+    image: "ghcr.io/polarbookshop/polar-ui:v1"
+    container_name: "polar-ui"
+    ports:
+      - "9004:9004"
+    environment:
+      - PORT=9004
 volumes:
   db-data:
